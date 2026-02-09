@@ -516,20 +516,15 @@
       }
 
       .interests-list li {
-        padding: 0.6rem 1.2rem;
-        background: linear-gradient(
-          135deg,
-          var(--gold) 0%,
-          var(--light-gold) 100%
-        );
-        color: var(--black);
-        font-weight: 600;
-        font-size: 0.9rem;
-        border-radius: 20px;
-        box-shadow: 0 2px 6px rgba(212, 175, 55, 0.3);
-        transition: all 0.3s ease;
+        padding: 0.4rem 0.9rem;
+        background: rgba(212, 175, 55, 0.08);
+        color: var(--mid-gray);
+        font-weight: 500;
+        font-size: 0.85rem;
+        border-radius: 16px;
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        transition: all 0.2s ease;
         position: relative;
-        border: 2px solid transparent;
       }
 
       .interests-list li::before {
@@ -537,15 +532,15 @@
       }
 
       .interests-list li:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.5);
-        border-color: var(--gold);
+        background: rgba(212, 175, 55, 0.12);
+        border-color: rgba(212, 175, 55, 0.4);
       }
 
       .interest-icon {
-        font-size: 1.1rem;
-        margin-right: 0.4rem;
+        font-size: 0.95rem;
+        margin-right: 0.35rem;
         display: inline-block;
+        opacity: 0.8;
       }
 
       .contact-grid {
