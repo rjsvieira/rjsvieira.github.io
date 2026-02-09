@@ -1,753 +1,1339 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ricardo Vieira — Senior Software Engineer">
-    <meta name="robots" content="index, follow">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ricardo Vieira — Senior Software Engineer"
+    />
+    <meta name="robots" content="index, follow" />
     <title>Ricardo Vieira - Tech Lead | Senior Software Engineer</title>
     <script src="https://unpkg.com/feather-icons"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        :root {
-            --black: #0a0a0a;
-            --dark-gray: #1a1a1a;
-            --mid-gray: #333333;
-            --light-gray: #666666;
-            --gold: #d4af37;
-            --light-gold: #f0d875;
-            --off-white: #f5f5f5;
-        }
+      :root {
+        --black: #0a0a0a;
+        --dark-gray: #1a1a1a;
+        --mid-gray: #333333;
+        --light-gray: #666666;
+        --gold: #d4af37;
+        --light-gold: #f0d875;
+        --off-white: #f5f5f5;
+      }
 
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: var(--off-white);
+        color: var(--mid-gray);
+        line-height: 1.7;
+        font-weight: 500;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+      }
+
+      @media (max-width: 920px) {
+        .container {
+          box-shadow: none;
+        }
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--black) 0%,
+          var(--dark-gray) 100%
+        );
+        padding: 2rem 2rem 1.5rem;
+        text-align: center;
+        position: relative;
+      }
+
+      .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 0 auto 0.8rem;
+        border: 4px solid var(--gold);
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        object-fit: cover;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+        color: var(--gold);
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+      }
+
+      .tagline {
+        font-size: 1rem;
+        color: var(--light-gold);
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .contact-header {
+        color: var(--off-white);
+        margin-bottom: 1.2rem;
+        font-weight: 500;
+      }
+
+      .contact-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        margin-top: 1rem;
+      }
+
+      .contact-list li {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: var(--off-white);
+        font-size: 0.95rem;
+      }
+
+      .contact-list li i {
+        color: var(--gold);
+        width: 18px;
+        height: 18px;
+      }
+
+      .contact-list a {
+        color: var(--gold);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .contact-list a:hover {
+        color: var(--light-gold);
+        text-decoration: underline;
+      }
+
+      .quote {
+        font-style: italic;
+        color: var(--light-gold);
+        opacity: 0.9;
+        margin: 1rem 0;
+        font-size: 1rem;
+        font-weight: 500;
+      }
+
+      .btn-download {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.75rem;
+        background: var(--gold);
+        color: var(--black);
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 700;
+        transition: all 0.3s;
+        border: 2px solid var(--gold);
+        margin-top: 0.8rem;
+      }
+
+      .btn-download:hover {
+        background: transparent;
+        color: var(--gold);
+      }
+
+      main {
+        padding: 3rem;
+      }
+
+      section {
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      section:last-child {
+        border-bottom: none;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+        color: var(--black);
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-bottom: 2px solid var(--gold);
+      }
+
+      h2::before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        background: var(--gold);
+        display: inline-block;
+        border-radius: 50%;
+        box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+      }
+
+      h3 {
+        font-size: 1.3rem;
+        color: var(--black);
+        margin-bottom: 0.4rem;
+        font-weight: 700;
+      }
+
+      h4 {
+        font-size: 1.1rem;
+        color: var(--gold);
+        margin-bottom: 0.8rem;
+        margin-top: 1.5rem;
+        font-weight: 700;
+        font-style: italic;
+      }
+
+      .profile-list {
+        list-style: none;
+        margin-bottom: 1rem;
+      }
+
+      .profile-list li {
+        padding-left: 1.5rem;
+        margin-bottom: 0.7rem;
+        position: relative;
+        font-weight: 500;
+      }
+
+      .profile-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.6rem;
+        width: 7px;
+        height: 7px;
+        background: var(--gold);
+        border-radius: 50%;
+      }
+
+      .summary-text {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--mid-gray);
+        font-weight: 500;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        column-gap: 3rem;
+      }
+
+      .skills-category {
+        margin-bottom: 0;
+      }
+
+      .skills-category h4 {
+        margin-top: 0;
+        margin-bottom: 0.8rem;
+      }
+
+      .skills-category ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .skills-category li {
+        padding-left: 1.5rem;
+        margin-bottom: 0.3rem;
+        position: relative;
+        color: var(--mid-gray);
+        font-weight: 500;
+        font-size: 0.95rem;
+      }
+
+      .skills-category li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.5rem;
+        width: 7px;
+        height: 7px;
+        background: var(--gold);
+        border-radius: 50%;
+      }
+
+      .timeline-item {
+        margin-bottom: 2.5rem;
+        position: relative;
+        padding-left: 2rem;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 12px;
+        height: 12px;
+        background: var(--gold);
+        border-radius: 50%;
+        z-index: 2;
+      }
+
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 23px;
+        width: 2px;
+        bottom: calc(-2.5rem + 5px);
+        background: var(--black);
+        z-index: 1;
+      }
+
+      .timeline-item:last-child::after {
+        display: none;
+      }
+
+      .company-meta {
+        color: var(--gold);
+        font-style: italic;
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+      }
+
+      .timeline-item > p {
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+        color: var(--mid-gray);
+        line-height: 1.7;
+        font-weight: 500;
+      }
+
+      .timeline-item ul {
+        list-style: none;
+        margin-top: 1rem;
+      }
+
+      .timeline-item li {
+        padding-left: 1.5rem;
+        margin-bottom: 0.8rem;
+        position: relative;
+        color: var(--mid-gray);
+        font-weight: 500;
+      }
+
+      .timeline-item li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.6rem;
+        width: 7px;
+        height: 7px;
+        background: var(--gold);
+        border-radius: 50%;
+      }
+
+      .education-item {
+        margin-bottom: 2.5rem;
+        position: relative;
+        padding-left: 2rem;
+      }
+
+      .education-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 12px;
+        height: 12px;
+        background: var(--gold);
+        border-radius: 50%;
+        z-index: 2;
+      }
+
+      .education-item::after {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 23px;
+        width: 2px;
+        bottom: calc(-2.5rem + 5px);
+        background: var(--black);
+        z-index: 1;
+      }
+
+      .education-item:last-child::after {
+        display: none;
+      }
+
+      .cert-item,
+      .award-item {
+        margin-bottom: 1.8rem;
+      }
+
+      #projects {
+        overflow: visible;
+      }
+
+      #projects .projects-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .project-item {
+        position: relative;
+        padding: 1.5rem 1rem;
+        background: white;
+        border: 5px solid var(--gold);
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 200px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .project-item::before {
+        display: none;
+      }
+
+      .project-item:hover {
+        background: white;
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        border-color: var(--light-gold);
+      }
+
+      .project-item h3 {
+        margin-bottom: 1rem;
+        color: var(--black);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 1.1rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        hyphens: auto;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .project-icon {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+
+      .project-item .project-desc {
+        font-size: 0.7rem;
+        line-height: 1.4;
+        color: var(--mid-gray);
+        margin-bottom: 0.8rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        width: 100%;
+      }
+
+      .project-item .project-desc strong {
+        display: block;
+        margin-bottom: 0.4rem;
+        color: var(--black);
+        font-weight: 700;
+      }
+
+      .edu-meta,
+      .cert-meta,
+      .project-meta {
+        color: var(--gold);
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        font-style: italic;
+      }
+
+      .edu-focus,
+      .cert-desc,
+      .project-desc,
+      .award-desc {
+        color: var(--light-gray);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-top: 0.5rem;
+        font-weight: 500;
+      }
+
+      .project-link,
+      .cert-link,
+      .award-link {
+        color: var(--gold);
+        text-decoration: none;
+        font-weight: 600;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .project-link:hover,
+      .cert-link:hover,
+      .award-link:hover {
+        text-decoration: underline;
+      }
+
+      .interests-list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+
+      .interests-list li {
+        padding: 0.6rem 1.2rem;
+        background: linear-gradient(
+          135deg,
+          var(--gold) 0%,
+          var(--light-gold) 100%
+        );
+        color: var(--black);
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-radius: 20px;
+        box-shadow: 0 2px 6px rgba(212, 175, 55, 0.3);
+        transition: all 0.3s ease;
+        position: relative;
+        border: 2px solid transparent;
+      }
+
+      .interests-list li::before {
+        display: none;
+      }
+
+      .interests-list li:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.5);
+        border-color: var(--gold);
+      }
+
+      .interest-icon {
+        font-size: 1.1rem;
+        margin-right: 0.4rem;
+        display: inline-block;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        max-width: 600px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        background: var(--black);
+        color: var(--gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .contact-info {
+        flex: 1;
+      }
+
+      .contact-info .label {
+        color: var(--light-gray);
+        font-size: 0.85rem;
+        display: block;
+        margin-bottom: 0.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .contact-info a {
+        color: var(--gold);
+        text-decoration: none;
+        font-weight: 600;
+        word-break: break-all;
+      }
+
+      .contact-info a:hover {
+        text-decoration: underline;
+      }
+
+      .contact-info span {
+        color: var(--mid-gray);
+        font-weight: 600;
+      }
+
+      footer {
+        background: var(--black);
+        color: var(--off-white);
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      footer a {
+        color: var(--gold);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      strong {
+        font-weight: 700;
+      }
+
+      @media print {
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: var(--off-white);
-            color: var(--mid-gray);
-            line-height: 1.7;
-            font-weight: 500;
+          background: white;
+          color: black;
         }
 
         .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
-            padding: 2rem 2rem 1.5rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .profile-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin: 0 auto 0.8rem;
-            border: 3px solid var(--gold);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-            object-fit: cover;
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .tagline {
-            font-size: 1rem;
-            color: var(--light-gold);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .contact-header {
-            color: var(--off-white);
-            margin-bottom: 1.2rem;
-            font-weight: 500;
-        }
-
-        .contact-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            align-items: center;
-            margin-top: 1rem;
-        }
-
-        .contact-list li {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            color: var(--off-white);
-            font-size: 0.95rem;
-        }
-
-        .contact-list li i {
-            color: var(--gold);
-            width: 18px;
-            height: 18px;
-        }
-
-        .contact-list a {
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .contact-list a:hover {
-            color: var(--light-gold);
-            text-decoration: underline;
-        }
-
-        .quote {
-            font-style: italic;
-            color: var(--light-gold);
-            opacity: 0.9;
-            margin: 1rem 0;
-            font-size: 1rem;
-            font-weight: 500;
+          box-shadow: none;
         }
 
         .btn-download {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.75rem;
-            background: var(--gold);
-            color: var(--black);
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 700;
-            transition: all 0.3s;
-            border: 2px solid var(--gold);
-            margin-top: 0.8rem;
+          display: none;
         }
 
-        .btn-download:hover {
-            background: transparent;
-            color: var(--gold);
+        header {
+          background: white !important;
+          color: black !important;
         }
 
-        main {
-            padding: 3rem;
-        }
-
-        section {
-            margin-bottom: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        section:last-child {
-            border-bottom: none;
-        }
-
-        h2 {
-            font-size: 1.6rem;
-            color: var(--black);
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        h1,
+        .tagline,
+        .quote,
+        .contact-list li,
+        .contact-list a {
+          color: black !important;
         }
 
         h2::before {
-            content: '';
-            width: 4px;
-            height: 26px;
-            background: var(--gold);
-            display: inline-block;
-        }
-
-        h3 {
-            font-size: 1.3rem;
-            color: var(--black);
-            margin-bottom: 0.4rem;
-            font-weight: 700;
-        }
-
-        h4 {
-            font-size: 1.1rem;
-            color: var(--gold);
-            margin-bottom: 0.8rem;
-            margin-top: 1.5rem;
-            font-weight: 700;
-        }
-
-        .profile-list {
-            list-style: none;
-            margin-bottom: 1rem;
-        }
-
-        .profile-list li {
-            padding-left: 1.5rem;
-            margin-bottom: 0.7rem;
-            position: relative;
-            font-weight: 500;
-        }
-
-        .profile-list li::before {
-            content: "▸";
-            color: var(--gold);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .summary-text {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--mid-gray);
-            font-weight: 500;
-        }
-
-        .skills-category {
-            margin-bottom: 1.2rem;
-        }
-
-        .skills-category h4 {
-            margin-top: 0;
-        }
-
-        .skills-category p {
-            color: var(--mid-gray);
-            line-height: 1.7;
-            font-weight: 500;
-        }
-
-        .timeline-item {
-            margin-bottom: 2.5rem;
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 8px;
-            width: 12px;
-            height: 12px;
-            background: var(--gold);
-            border-radius: 50%;
-        }
-
-        .company-meta {
-            color: var(--gold);
-            font-style: italic;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-        }
-
-        .timeline-item ul {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .timeline-item li {
-            padding-left: 1.5rem;
-            margin-bottom: 0.8rem;
-            position: relative;
-            color: var(--mid-gray);
-            font-weight: 500;
-        }
-
-        .timeline-item li::before {
-            content: "→";
-            color: var(--gold);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .education-item, .cert-item, .project-item, .award-item {
-            margin-bottom: 1.8rem;
-        }
-
-        .edu-meta, .cert-meta, .project-meta {
-            color: var(--gold);
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .edu-focus, .cert-desc, .project-desc, .award-desc {
-            color: var(--light-gray);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-top: 0.5rem;
-            font-weight: 500;
-        }
-
-        .project-link, .cert-link, .award-link {
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .project-link:hover, .cert-link:hover, .award-link:hover {
-            text-decoration: underline;
-        }
-
-        .interests-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 0.8rem;
-        }
-
-        .interests-list li {
-            padding-left: 1.5rem;
-            position: relative;
-            font-weight: 500;
-        }
-
-        .interests-list li::before {
-            content: "▸";
-            color: var(--gold);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            max-width: 600px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
+          background: black !important;
         }
 
         .contact-icon {
-            width: 40px;
-            height: 40px;
-            min-width: 40px;
-            background: var(--black);
-            color: var(--gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .contact-info {
-            flex: 1;
-        }
-
-        .contact-info .label {
-            color: var(--light-gray);
-            font-size: 0.85rem;
-            display: block;
-            margin-bottom: 0.2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .contact-info a {
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 600;
-            word-break: break-all;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        .contact-info span {
-            color: var(--mid-gray);
-            font-weight: 600;
+          background: white !important;
+          border: 1px solid black !important;
+          color: black !important;
         }
 
         footer {
-            background: var(--black);
-            color: var(--off-white);
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-            font-weight: 500;
+          background: white !important;
+          color: black !important;
+        }
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
         }
 
-        footer a {
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 600;
+        header,
+        main {
+          padding: 2rem 1.5rem;
         }
 
-        strong {
-            font-weight: 700;
+        .contact-grid {
+          grid-template-columns: 1fr;
         }
 
-        @media print {
-            body {
-                background: white;
-                color: black;
-            }
-
-            .container {
-                box-shadow: none;
-            }
-
-            .btn-download {
-                display: none;
-            }
-
-            header {
-                background: white !important;
-                color: black !important;
-            }
-
-            h1, .tagline, .quote, .contact-list li, .contact-list a {
-                color: black !important;
-            }
-
-            h2::before {
-                background: black !important;
-            }
-
-            .contact-icon {
-                background: white !important;
-                border: 1px solid black !important;
-                color: black !important;
-            }
-
-            footer {
-                background: white !important;
-                color: black !important;
-            }
+        .skills-grid {
+          grid-template-columns: 1fr;
         }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            header, main {
-                padding: 2rem 1.5rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
+        .profile-image {
+          width: 120px;
+          height: 120px;
         }
+
+        #projects .projects-container {
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+
+        .project-item {
+          min-height: 180px;
+          padding: 1.2rem 0.8rem;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <img src="files/profile.png" alt="Ricardo Vieira" class="profile-image">
-            <h1>Ricardo Vieira</h1>
-            <div class="tagline">Tech Lead, Senior Software Engineer & Engineering Leadership</div>
+      <header>
+        <img
+          src="files/profile.png"
+          alt="Ricardo Vieira"
+          class="profile-image"
+        />
+        <h1>Ricardo Vieira</h1>
+        <div class="tagline">
+          Tech Lead, Senior Software Engineer & Engineering Leadership
+        </div>
 
-            <div class="contact-header">
-                <ul class="contact-list">
-                    <li>
-                        <i data-feather="map-pin"></i>
-                        Based in Braga, Portugal
-                    </li>
-                    <li>
-                        <i data-feather="phone"></i>
-                        Call me at +351 919 512 496
-                    </li>
-                    <li>
-                        <i data-feather="mail"></i>
-                        Email me at <a href="mailto:ricardojsvieira28@gmail.com">ricardojsvieira28@gmail.com</a>
-                    </li>
-                    <li>
-                        <i data-feather="linkedin"></i>
-                        Find me on <a href="https://linkedin.com/in/ricardojvieira" target="_blank">LinkedIn</a>
-                    </li>
-                    <li>
-                        <i data-feather="github"></i>
-                        Check out my <a href="https://github.com/rjsvieira" target="_blank">GitHub</a>
-                    </li>
-                    <li>
-                        <i data-feather="layers"></i>
-                        View my <a href="https://stackoverflow.com/users/4973987/ricardo-vieira" target="_blank">Stack Overflow</a>
-                    </li>
-                </ul>
+        <div class="contact-header">
+          <ul class="contact-list">
+            <li>
+              <i data-feather="map-pin"></i>
+              Based in Braga, Portugal
+            </li>
+            <li>
+              <i data-feather="phone"></i>
+              Call me at +351 919 512 496
+            </li>
+            <li>
+              <i data-feather="mail"></i>
+              Email me at
+              <a href="mailto:ricardojsvieira28@gmail.com"
+                >ricardojsvieira28@gmail.com</a
+              >
+            </li>
+            <li>
+              <i data-feather="linkedin"></i>
+              Find me on
+              <a href="https://linkedin.com/in/ricardojvieira" target="_blank"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <i data-feather="github"></i>
+              Check out my
+              <a href="https://github.com/rjsvieira" target="_blank">GitHub</a>
+            </li>
+            <li>
+              <i data-feather="layers"></i>
+              View my
+              <a
+                href="https://stackoverflow.com/users/4973987/ricardo-vieira"
+                target="_blank"
+                >Stack Overflow</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="quote">
+          "Knowing trees, I understand the meaning of patience. Knowing grass, I
+          can appreciate persistence" — Hal Borland
+        </div>
+
+        <a href="cv.md" class="btn-download" download>
+          <i data-feather="download"></i>
+          Download Resume
+        </a>
+      </header>
+
+      <main>
+        <section id="profile">
+          <h2>Professional Profile</h2>
+          <ul class="profile-list">
+            <li>
+              Versatile and multivalent software engineer with a proven track
+              record in evolving technologies and roles.
+            </li>
+            <li>
+              Sharp, pro-active, and creative in architecting solutions and
+              leading teams through complex transformations.
+            </li>
+            <li>
+              Humble, straightforward, and assertive in driving high-impact
+              delivery and fostering collaborative environments.
+            </li>
+          </ul>
+        </section>
+
+        <section id="summary">
+          <h2>Professional Summary</h2>
+          <p class="summary-text">
+            Accomplished Tech Lead and Senior Software Engineer with 13+ years
+            of progressive expertise across mobile, backend, full-stack, and
+            data-intensive systems. Specialized in scaling engineering teams,
+            modernizing legacy architectures, and delivering high-reliability
+            platforms in energy, fintech, and on-demand delivery. <br>
+            Drove zero-downtime deployments, massive data migrations (including Apache
+            Hop ETL), and 10× team growth while maintaining clean, performant
+            codebases using Python, Node.js, Docker, React, and modern
+            architecture principles.
+          </p>
+        </section>
+
+        <section id="skills">
+          <h2>Skills</h2>
+
+          <div class="skills-grid">
+            <div class="skills-category">
+              <h4>Languages & Frameworks</h4>
+              <ul>
+                <li>Python</li>
+                <li>Node.js</li>
+                <li>Typescript</li>
+                <li>Java</li>
+                <li>Kotlin</li>
+                <li>React</li>
+                <li>Angular</li>
+                <li>Flutter (Dart)</li>
+              </ul>
             </div>
 
-            <div class="quote">"I don't want to believe. I want to know." — Carl Sagan</div>
+            <div class="skills-category">
+              <h4>Databases & Messaging</h4>
+              <ul>
+                <li>MySQL / SQL</li>
+                <li>Redis</li>
+                <li>BullMQ</li>
+                <li>RabbitMQ</li>
+                <li>MongoDB</li>
+              </ul>
+            </div>
 
-            <a href="cv.md" class="btn-download" download>
-                <i data-feather="download"></i>
-                Download Resume
-            </a>
-        </header>
+            <div class="skills-category">
+              <h4>DevOps, ETL & Infrastructure</h4>
+              <ul>
+                <li>Docker</li>
+                <li>Git</li>
+                <li>CI/CD Pipelines</li>
+                <li>
+                  Apache Hop (ETL / Orchestration; evolved from Pentaho Data
+                  Integration)
+                </li>
+                <li>AWS (SiteWise)</li>
+                <li>Kubernetes</li>
+                <li>Azure</li>
+              </ul>
+            </div>
 
-        <main>
-            <section id="profile">
-                <h2>Professional Profile</h2>
-                <ul class="profile-list">
-                    <li>Versatile and multivalent software engineer with a proven track record in evolving technologies and roles.</li>
-                    <li>Sharp, pro-active, and creative in architecting solutions and leading teams through complex transformations.</li>
-                    <li>Humble, straightforward, and assertive in driving high-impact delivery and fostering collaborative environments.</li>
-                </ul>
-            </section>
+            <div class="skills-category">
+              <h4>Architecture & Best Practices</h4>
+              <ul>
+                <li>Clean Architecture, SOLID Principles, PEP20</li>
+                <li>Modular Monoliths</li>
+                <li>Microservices Patterns</li>
+                <li>REST APIs</li>
+                <li>Data Migration & ETL</li>
+                <li>Performance Optimization</li>
+                <li>Refactoring Large Codebases</li>
+              </ul>
+            </div>
 
-            <section id="summary">
-                <h2>Professional Summary</h2>
-                <p class="summary-text">
-                    Accomplished Tech Lead and Senior Software Engineer with 13+ years of progressive expertise across mobile, backend, full-stack, and data-intensive systems. Specialized in scaling engineering teams, modernizing legacy architectures, and delivering high-reliability platforms in energy, fintech, and on-demand delivery. Drove zero-downtime deployments, massive data migrations (including Apache Hop ETL), and 10× team growth while maintaining clean, performant codebases using Python, Node.js, Docker, React, and modern architecture principles.
-                </p>
-            </section>
+            <div class="skills-category">
+              <h4>Leadership & Tools</h4>
+              <ul>
+                <li>Team Scaling & Mentoring</li>
+                <li>Technical Roadmapping</li>
+                <li>Project / Product Management</li>
+                <li>Jira / Confluence</li>
+                <li>Agile Delivery</li>
+                <li>Stakeholder Alignment</li>
+                <li>Business Analysis</li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
-            <section id="skills">
-                <h2>Skills</h2>
+        <section id="experience">
+          <h2>Professional Experience</h2>
 
-                <div class="skills-category">
-                    <h4>Languages & Frameworks</h4>
-                    <p>Python · Node.js / Express · Java · Kotlin · React · Angular · Flutter (Dart)</p>
-                </div>
+          <div class="timeline-item">
+            <h3>Tech Lead</h3>
+            <div class="company-meta">
+              TheTakenSeat – GetDukan / Cari<br />
+              January 2022 – January 2026<br />
+              Kuwait (GetDukan) | Kuwait, KSA, UAE (Cari)
+            </div>
+            <p>
+              <strong
+                >Led complete platform transformation and 10× team scaling for
+                dual-brand on-demand delivery ecosystem competing against
+                regional giants in Middle East markets.</strong
+              >
+            </p>
+            <ul>
+              <li>
+                Architected and executed full refactor of acquired white-label
+                delivery platform into dual-brand modular monoliths (Dukan:
+                mass-market Kuwait focus; Cari: premium multi-market targeting
+                affluent users), delivering scalable, fault-tolerant
+                infrastructure that supported rapid growth in competitive
+                food/grocery delivery markets.
+              </li>
+              <li>
+                Directed massive legacy-to-2.0 database migration using
+                <strong>Apache Hop</strong> for heavy ETL/orchestration —
+                handling complex extraction, transformation, validation,
+                loading, and schema evolution of high-volume transactional data
+                with zero loss or downtime during cutover.
+              </li>
+              <li>
+                Revolutionized deployment ecosystem to achieve sub-60-second
+                releases and true zero-downtime via blue-green strategies and
+                automated CI/CD pipelines — boosting iteration speed, platform
+                uptime, and competitive edge against leaders like Talabat and
+                Deliveroo.
+              </li>
+              <li>
+                Scaled engineering team from 2 (CTO + self) to 20 carefully
+                recruited and mentored engineers, fostering ownership, technical
+                excellence, and high-velocity delivery that captured outsized
+                market share despite significantly smaller resources.
+              </li>
+              <li>
+                Owned end-to-end technical and product direction across full
+                stack (Node.js/Express backend, MySQL/RabbitMQ/Redis messaging,
+                React frontend, native Android/iOS in Kotlin/Swift, Python
+                tooling), while leading roadmap, business analysis, and
+                governance in Jira/Confluence.
+              </li>
+              <li>
+                Orchestrated seamless transition during Cari's acquisition by
+                competitor in January 2026, ensuring knowledge transfer and
+                continuity.
+              </li>
+            </ul>
+          </div>
 
-                <div class="skills-category">
-                    <h4>Databases & Messaging</h4>
-                    <p>MySQL / SQL · Redis · BullMQ · RabbitMQ · MongoDB</p>
-                </div>
+          <div class="timeline-item">
+            <h3>Backend Software Engineer</h3>
+            <div class="company-meta">
+              Kelvin Inc<br />
+              October 2018 – December 2021<br />
+              Braga, Portugal
+            </div>
+            <p>
+              <strong
+                >Modernized industrial IoT data infrastructure for Fortune 500
+                energy clients, delivering mission-critical reliability in
+                extreme environments.</strong
+              >
+            </p>
+            <ul>
+              <li>
+                Modernized mission-critical data infrastructure for major oil &
+                gas clients (Anadarko, BP, Shell, Halliburton): upgraded Kelvin
+                Databridge to v2.0 for robust multi-target replication and
+                refactored DSInterface Angular frontend to enable seamless
+                on-device ML model creation/execution by data scientists.
+              </li>
+              <li>
+                Designed and led <strong>Kelvin SDK</strong> development —
+                Python CLI + Docker containerization toolkit that streamlined
+                workflows, accelerated application deployment, and enhanced
+                developer productivity in industrial IoT environments.
+              </li>
+              <li>
+                Delivered AWS SiteWise integration, improving real-time data
+                ingestion, observability, and compliance for edge/field
+                operations in harsh, resource-constrained settings.
+              </li>
+              <li>
+                Prioritized reliability, performance tuning, and maintainable
+                code in Python/Angular/Docker/Git ecosystem for zero-tolerance,
+                high-stakes industrial applications.
+              </li>
+            </ul>
+          </div>
 
-                <div class="skills-category">
-                    <h4>DevOps, ETL & Infrastructure</h4>
-                    <p>Docker · Git · CI/CD Pipelines · Apache Hop (ETL / Orchestration; evolved from Pentaho Data Integration) · AWS (SiteWise) · Pentaho Data Integration</p>
-                </div>
+          <div class="timeline-item">
+            <h3>Flutter Developer</h3>
+            <div class="company-meta">
+              Private Medical Group<br />
+              October 2017 – October 2018<br />
+              Braga, Portugal
+            </div>
+            <p>
+              <strong
+                >Built patient-facing mobile healthcare application prioritizing
+                intuitive UX for pediatric care workflows.</strong
+              >
+            </p>
+            <ul>
+              <li>
+                Developed intuitive pediatric patient assistance mobile
+                application using Flutter/Dart, delivering fast, simple, and
+                user-centric experience that enhanced accessibility and
+                satisfaction in sensitive healthcare contexts.
+              </li>
+            </ul>
+          </div>
 
-                <div class="skills-category">
-                    <h4>Architecture & Best Practices</h4>
-                    <p>Clean Architecture · SOLID Principles · PEP 20 · Modular Monoliths · Microservices Patterns · REST APIs · Data Migration & ETL · Performance Optimization · Refactoring Large Codebases</p>
-                </div>
+          <div class="timeline-item">
+            <h3>Mobile Developer / Consultant / Project Roles</h3>
+            <div class="company-meta">
+              Xpand-IT (Clients: TAP Airlines, Altran, Commerz Finanz, BNP
+              Paribas/Cetelem)<br />
+              March 2015 – September 2018<br />
+              Portugal (Multiple Locations)
+            </div>
+            <p>
+              <strong
+                >Delivered specialized mobile solutions and expert consulting
+                across aviation and fintech sectors for major European
+                enterprise clients.</strong
+              >
+            </p>
+            <ul>
+              <li>
+                Led end-to-end Android development and delivery for
+                aviation/fintech sectors: gathered requirements, designed
+                architecture, and implemented specialized features (e.g.,
+                Firebase ML Kit barcode scanning for airport machinery tracking,
+                digital signature/document scanning for credit contracts).
+              </li>
+              <li>
+                Refactored high-traffic components (multimedia plugins, backend
+                queries, content access) across banking and airline apps,
+                achieving significant performance improvements and
+                maintainability gains.
+              </li>
+              <li>
+                Provided expert consulting: analyzed medical/banking systems,
+                crafted refactoring roadmaps, and delivered on-site guidance on
+                mobile architectures and techniques to ensure scalable,
+                production-ready solutions.
+              </li>
+            </ul>
+          </div>
 
-                <div class="skills-category">
-                    <h4>Leadership & Tools</h4>
-                    <p>Team Scaling & Mentoring · Technical Roadmapping · Project / Product Management · Jira / Confluence · Agile Delivery · Stakeholder Alignment · Business Analysis</p>
-                </div>
-            </section>
+          <div class="timeline-item">
+            <h3>Software Engineer</h3>
+            <div class="company-meta">
+              Eufinity Solutions<br/>
+              February 2013 – February 2015<br/>
+              Braga, Portugal
+            </div>
+            <p>
+              <strong
+                >Developed retail mobile applications and managed critical ETL
+                infrastructure supporting multinational operations across Europe
+                and Africa.</strong
+              >
+            </p>
+            <ul>
+              <li>
+                Designed, developed, and managed retail-oriented Android
+                applications (e.g., Aldo Store Find deployed across Portugal),
+                ensuring reliable functionality for nationwide store networks.
+              </li>
+              <li>
+                Maintained SQL Server/MySQL databases for integrity and 99.9%
+                uptime; engineered ETL pipelines to enable robust, bidirectional
+                data exchange between systems and global partners.
+              </li>
+              <li>
+                Served as client-facing support interface for multi-continental
+                customers (primarily Europe and Francophone Africa), resolving
+                issues and bridging technical/business needs.
+              </li>
+            </ul>
+          </div>
+        </section>
 
-            <section id="experience">
-                <h2>Professional Experience</h2>
+        <section id="education">
+          <h2>Education</h2>
 
-                <div class="timeline-item">
-                    <h3>Tech Lead</h3>
-                    <div class="company-meta">
-                        TheTakenSeat – GetDukan / Cari<br>
-                        January 2022 – January 2026<br>
-                        Kuwait (GetDukan) | Kuwait, KSA, UAE (Cari)
-                    </div>
-                    <ul>
-                        <li>Architected and executed full refactor of acquired white-label delivery platform into dual-brand modular monoliths (Dukan: mass-market Kuwait focus; Cari: premium multi-market targeting affluent users), delivering scalable, fault-tolerant infrastructure that supported rapid growth in competitive food/grocery delivery markets.</li>
-                        <li>Directed massive legacy-to-2.0 database migration using <strong>Apache Hop</strong> for heavy ETL/orchestration — handling complex extraction, transformation, validation, loading, and schema evolution of high-volume transactional data with zero loss or downtime during cutover.</li>
-                        <li>Revolutionized deployment ecosystem to achieve sub-60-second releases and true zero-downtime via blue-green strategies and automated CI/CD pipelines — boosting iteration speed, platform uptime, and competitive edge against leaders like Talabat and Deliveroo.</li>
-                        <li>Scaled engineering team from 2 (CTO + self) to 20 carefully recruited and mentored engineers, fostering ownership, technical excellence, and high-velocity delivery that captured outsized market share despite significantly smaller resources.</li>
-                        <li>Owned end-to-end technical and product direction across full stack (Node.js/Express backend, MySQL/RabbitMQ/Redis messaging, React frontend, native Android/iOS in Kotlin/Swift, Python tooling), while leading roadmap, business analysis, and governance in Jira/Confluence.</li>
-                        <li>Orchestrated seamless transition during Cari's acquisition by competitor in January 2026, ensuring knowledge transfer and continuity.</li>
-                    </ul>
-                </div>
+          <div class="education-item">
+            <h3>MSc Informatics Engineering</h3>
+            <div class="edu-meta">
+              University of Minho, Braga, Portugal<br />
+              2012 – 2014
+            </div>
+            <div class="edu-focus">
+              Focus: Mobile Computing, Ubiquitous Programming, Requirements Engineering.
+            </div>
+          </div>
 
-                <div class="timeline-item">
-                    <h3>Backend Software Engineer</h3>
-                    <div class="company-meta">
-                        Kelvin Inc<br>
-                        October 2018 – December 2021<br>
-                        Braga, Portugal
-                    </div>
-                    <ul>
-                        <li>Modernized mission-critical data infrastructure for major oil & gas clients (Anadarko, BP, Shell, Halliburton): upgraded Kelvin Databridge to v2.0 for robust multi-target replication and refactored DSInterface Angular frontend to enable seamless on-device ML model creation/execution by data scientists.</li>
-                        <li>Designed and led <strong>Kelvin SDK</strong> development — Python CLI + Docker containerization toolkit that streamlined workflows, accelerated application deployment, and enhanced developer productivity in industrial IoT environments.</li>
-                        <li>Delivered AWS SiteWise integration, improving real-time data ingestion, observability, and compliance for edge/field operations in harsh, resource-constrained settings.</li>
-                        <li>Prioritized reliability, performance tuning, and maintainable code in Python/Angular/Docker/Git ecosystem for zero-tolerance, high-stakes industrial applications.</li>
-                    </ul>
-                </div>
+          <div class="education-item">
+            <h3>BSc Computer Science</h3>
+            <div class="edu-meta">
+                University of Minho, Braga, Portugal
+                2008 – 2012
+            </div>
+            <div class="edu-focus">
+                Focus on software engineering through strong mathematical foundations, algorithm design, and core computing concepts.
+            </div>
+          </div>
 
-                <div class="timeline-item">
-                    <h3>Flutter Developer</h3>
-                    <div class="company-meta">
-                        Private Medical Group<br>
-                        October 2017 – October 2018<br>
-                        Braga, Portugal
-                    </div>
-                    <ul>
-                        <li>Developed intuitive pediatric patient assistance mobile application using Flutter/Dart, delivering fast, simple, and user-centric experience that enhanced accessibility and satisfaction in sensitive healthcare contexts.</li>
-                    </ul>
-                </div>
+          <div class="education-item">
+            <h3>High School – Science and Technology</h3>
+            <div class="edu-meta">
+              Vila Verde High School, Portugal | 2005 – 2008
+            </div>
+            <div class="edu-focus">Emphasis on Tech, Mathematics & Physics.</div>
+          </div>
+        </section>
 
-                <div class="timeline-item">
-                    <h3>Mobile Developer / Consultant / Project Roles</h3>
-                    <div class="company-meta">
-                        Xpand-IT (Clients: TAP Airlines, Altran, Commerz Finanz, BNP Paribas/Cetelem)<br>
-                        March 2015 – September 2018<br>
-                        Portugal (Multiple Locations)
-                    </div>
-                    <ul>
-                        <li>Led end-to-end Android development and delivery for aviation/fintech sectors: gathered requirements, designed architecture, and implemented specialized features (e.g., Firebase ML Kit barcode scanning for airport machinery tracking, digital signature/document scanning for credit contracts).</li>
-                        <li>Refactored high-traffic components (multimedia plugins, backend queries, content access) across banking and airline apps, achieving significant performance improvements and maintainability gains.</li>
-                        <li>Provided expert consulting: analyzed medical/banking systems, crafted refactoring roadmaps, and delivered on-site guidance on mobile architectures and techniques to ensure scalable, production-ready solutions.</li>
-                    </ul>
-                </div>
+        <section id="projects">
+          <h2>Personal Projects & Open Source</h2>
 
-                <div class="timeline-item">
-                    <h3>Software Engineer</h3>
-                    <div class="company-meta">
-                        EuFinity Solutions & Early Roles<br>
-                        February 2013 – February 2015<br>
-                        Braga, Portugal
-                    </div>
-                    <ul>
-                        <li>Designed, developed, and managed retail-oriented Android applications (e.g., Aldo Store Find deployed across Portugal), ensuring reliable functionality for nationwide store networks.</li>
-                        <li>Maintained SQL Server/MySQL databases for integrity and 99.9% uptime; engineered ETL pipelines with Pentaho Data Integration to enable robust, bidirectional data exchange between systems and global partners.</li>
-                        <li>Served as client-facing support interface for multi-continental customers (primarily Europe and Francophone Africa), resolving issues and bridging technical/business needs.</li>
-                    </ul>
-                </div>
-            </section>
+          <div class="projects-container">
+          <div class="project-item">
+            <h3>
+              <svg class="project-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Central bright core -->
+                <circle cx="24" cy="24" r="4" fill="#f0d875"/>
+                <circle cx="24" cy="24" r="3" fill="#ffffff" opacity="0.8"/>
 
-            <section id="education">
-                <h2>Education</h2>
+                <!-- Main 4-point star rays -->
+                <path d="M24 4 L24 20 M24 28 L24 44 M4 24 L20 24 M28 24 L44 24" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
 
-                <div class="education-item">
-                    <h3>MSc Informatics Engineering</h3>
-                    <div class="edu-meta">University of Minho, Braga, Portugal | 2012 – 2014</div>
-                    <div class="edu-focus">Focus: Mobile Computing, Ubiquitous Programming, Requirements Engineering</div>
-                </div>
+                <!-- Diagonal rays -->
+                <path d="M9 9 L18 18 M30 30 L39 39 M39 9 L30 18 M18 30 L9 39" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
 
-                <div class="education-item">
-                    <h3>BSc Computer Science</h3>
-                    <div class="edu-meta">University of Minho, Braga, Portugal | 2008 – 2012</div>
-                </div>
+                <!-- Outer glow rays -->
+                <path d="M24 0 L24 8 M24 40 L24 48 M0 24 L8 24 M40 24 L48 24" stroke="#f0d875" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+              </svg>
+              ShiningImagination
+            </h3>
+            <div class="project-desc">
+              Specialized company focused on delivering custom software solutions, technical
+              consulting, and enterprise-grade development services.
+              <a
+                href="https://shiningimagination.pt"
+                class="project-link"
+                target="_blank"
+                ><br>Visit Website</a
+              >
+            </div>
+          </div>
 
-                <div class="education-item">
-                    <h3>High School – Science and Technology</h3>
-                    <div class="edu-meta">Vila Verde High School, Portugal | 2005 – 2008</div>
-                    <div class="edu-focus">Emphasis: Mathematics & Physics</div>
-                </div>
-            </section>
+          <div class="project-item">
+            <h3>
+              <img
+                src="https://skillicons.dev/icons?i=github"
+                alt="GitHub"
+                class="project-icon"
+              />
+              openrouteservice
+            </h3>
+            <div class="project-desc">
+              Fork of open-source routing engine with advanced pathfinding
+              enhancements.
+              <a
+                href="https://github.com/rjsvieira/openrouteservice"
+                class="project-link"
+                target="_blank"
+                ><br>View on GitHub</a
+              >
+            </div>
+          </div>
 
-            <section id="certifications">
-                <h2>Certifications & Training</h2>
+          <div class="project-item">
+            <h3>
+              <img
+                src="https://skillicons.dev/icons?i=github"
+                alt="GitHub"
+                class="project-icon"
+              />
+              FloatingMenu
+            </h3>
+            <div class="project-desc">
+              Highly rated Android floating menu library (Top 5 featured, June
+              2017).
+              <a
+                href="https://github.com/rjsvieira/floatingMenu"
+                class="project-link"
+                target="_blank"
+                ><br>View on GitHub</a
+              >
+            </div>
+          </div>
 
-                <div class="cert-item">
-                    <h3>MongoDB for Node.js Developers</h3>
-                    <div class="cert-meta">March 2014 – May 2014</div>
-                    <div class="cert-desc">
-                        Comprehensive course on MongoDB fundamentals, including database operations, integration with Node.js, and building scalable applications.<br>
-                        <a href="http://university.mongodb.com/course_completion/4fbe2fbb35074d1ba8600c762fabede5" class="cert-link" target="_blank">View Certificate</a>
-                    </div>
-                </div>
+          <div class="project-item">
+            <h3>
+              <img
+                src="https://skillicons.dev/icons?i=github"
+                alt="GitHub"
+                class="project-icon"
+              />
+              CircularView
+            </h3>
+            <div class="project-desc">
+              Google Fit-style circular progress/animation view.
+              <a
+                href="https://github.com/rjsvieira/circularView"
+                class="project-link"
+                target="_blank"
+                ><br>View on GitHub</a
+              >
+            </div>
+          </div>
 
-                <div class="cert-item">
-                    <h3>Teaching & Pedagogical Competence Certificate</h3>
-                    <div class="cert-meta">September 2013 – November 2013 | Cisco AnySolutions, Braga, Portugal</div>
-                    <div class="cert-desc">
-                        Certification equipping individuals with essential pedagogical skills and knowledge required for official teaching roles in Portugal, focusing on effective instruction and classroom management.
-                    </div>
-                </div>
-            </section>
+          <div class="project-item">
+            <h3>
+              <img
+                src="https://skillicons.dev/icons?i=github"
+                alt="GitHub"
+                class="project-icon"
+              />
+              Morphos
+            </h3>
+            <div class="project-desc">
+              Lightweight animation wrapper for fluid UI transitions.
+              <a
+                href="https://github.com/rjsvieira/morphos"
+                class="project-link"
+                target="_blank"
+                ><br>View on GitHub</a
+              >
+            </div>
+          </div>
 
-            <section id="awards">
-                <h2>Awards & Achievements</h2>
+          <div class="project-item">
+            <h3>
+              <img
+                src="https://skillicons.dev/icons?i=github"
+                alt="GitHub"
+                class="project-icon"
+              />
+              DroidTextSig
+            </h3>
+            <div class="project-desc">
+              LGPL-based wrapper for PDF text extraction and signing.
+              <a
+                href="https://github.com/rjsvieira/droidTextSig"
+                class="project-link"
+                target="_blank"
+                ><br>View on GitHub</a
+              >
+            </div>
+          </div>
 
-                <div class="award-item">
-                    <h3>Top 5 Android Library of the Month</h3>
-                    <div class="cert-meta">June 2017</div>
-                    <div class="award-desc">
-                        FloatingMenu library recognized among the top 5 Android libraries by Medium's Cobeisfresh, highlighting innovative UI/UX contributions to the developer community.<br>
-                        <a href="https://medium.cobeisfresh.com/top-5-android-libraries-june-2017-7b655883058f" class="award-link" target="_blank">View Article</a>
-                    </div>
-                </div>
-            </section>
+          <div class="project-item">
+            <h3>
+              <img
+                src="https://skillicons.dev/icons?i=github"
+                alt="GitHub"
+                class="project-icon"
+              />
+              expandableConstraintLayout
+            </h3>
+            <div class="project-desc">
+              Kotlin wrapper enabling smooth expand/collapse in
+              ConstraintLayouts.
+              <a
+                href="https://github.com/rjsvieira/expandableConstraintLayout"
+                class="project-link"
+                target="_blank"
+                ><br>View on GitHub</a
+              >
+            </div>
+          </div>
+          </div>
+        </section>
 
-            <section id="projects">
-                <h2>Personal Projects & Open Source</h2>
+        <section id="certifications">
+          <h2>Certifications & Training</h2>
 
-                <div class="project-item">
-                    <h3>expandableConstraintLayout</h3>
-                    <div class="project-desc">
-                        Kotlin wrapper enabling smooth expand/collapse in ConstraintLayouts.
-                        <a href="https://github.com/rjsvieira/expandableConstraintLayout" class="project-link" target="_blank">View on GitHub</a>
-                    </div>
-                </div>
+          <div class="cert-item">
+            <h3>MongoDB for Node.js Developers</h3>
+            <div class="cert-meta">March 2014 – May 2014</div>
+            <div class="cert-desc">
+              Comprehensive course on MongoDB fundamentals, including database
+              operations, integration with Node.js, and building scalable
+              applications.<br />
+            </div>
+          </div>
 
-                <div class="project-item">
-                    <h3>openrouteservice</h3>
-                    <div class="project-desc">
-                        Fork of open-source routing engine with advanced pathfinding enhancements.
-                        <a href="https://github.com/rjsvieira/openrouteservice" class="project-link" target="_blank">View on GitHub</a>
-                    </div>
-                </div>
+          <div class="cert-item">
+            <h3>Teaching & Pedagogical Competence Certificate</h3>
+            <div class="cert-meta">
+              September 2013 – November 2013 | Cisco AnySolutions, Braga,
+              Portugal
+            </div>
+            <div class="cert-desc">
+              Certification equipping individuals with essential pedagogical
+              skills and knowledge required for official teaching roles in
+              Portugal, focusing on effective instruction and classroom
+              management.
+            </div>
+          </div>
+        </section>
 
-                <div class="project-item">
-                    <h3>FloatingMenu</h3>
-                    <div class="project-desc">
-                        Highly rated Android floating menu library (Top 5 featured, June 2017).
-                        <a href="https://github.com/rjsvieira/floatingMenu" class="project-link" target="_blank">View on GitHub</a>
-                    </div>
-                </div>
+        <section id="awards">
+          <h2>Awards & Achievements</h2>
 
-                <div class="project-item">
-                    <h3>CircularView</h3>
-                    <div class="project-desc">
-                        Google Fit-style circular progress/animation view.
-                        <a href="https://github.com/rjsvieira/circularView" class="project-link" target="_blank">View on GitHub</a>
-                    </div>
-                </div>
+          <div class="award-item">
+            <h3>Top 5 Android Library of the Month</h3>
+            <div class="cert-meta">June 2017</div>
+            <div class="award-desc">
+              FloatingMenu library recognized among the top 5 Android libraries
+              by Medium's Cobeisfresh, highlighting innovative UI/UX
+              contributions to the developer community.<br />
+              <a
+                href="https://medium.cobeisfresh.com/top-5-android-libraries-june-2017-7b655883058f"
+                class="award-link"
+                target="_blank"
+                >View Article</a
+              >
+            </div>
+          </div>
+        </section>
 
-                <div class="project-item">
-                    <h3>Morphos</h3>
-                    <div class="project-desc">
-                        Lightweight animation wrapper for fluid UI transitions.
-                        <a href="https://github.com/rjsvieira/morphos" class="project-link" target="_blank">View on GitHub</a>
-                    </div>
-                </div>
+        <section id="interests">
+          <h2>Interests</h2>
+          <ul class="interests-list">
+            <li><span class="interest-icon">⚡</span> Physics, Electricity & Algorithms</li>
+            <li><span class="interest-icon">🔗</span> Graph Theory & Clean, Performant Implementations</li>
+            <li><span class="interest-icon">🌍</span> Geographical Knowledge and calculations</li>
+            <li>
+              <span class="interest-icon">🏗️</span> Software Architecture, Functional Programming & Code Maintenance
+            </li>
+            <li><span class="interest-icon">🚀</span> Version Control & Performance Optimization</li>
+            <li><span class="interest-icon">📚</span> World Knowledge, Trivia & Lifelong Learning</li>
+            <li><span class="interest-icon">💻</span> Open Source</li>
+          </ul>
+        </section>
+      </main>
 
-                <div class="project-item">
-                    <h3>DroidTextSig</h3>
-                    <div class="project-desc">
-                        LGPL-based wrapper for PDF text extraction and signing.
-                        <a href="https://github.com/rjsvieira/droidTextSig" class="project-link" target="_blank">View on GitHub</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="interests">
-                <h2>Interests</h2>
-                <ul class="interests-list">
-                    <li>Physics, Electricity & Algorithms</li>
-                    <li>Graph Theory & Clean, Performant Implementations</li>
-                    <li>Geographical Knowledge and calculations</li>
-                    <li>Software Architecture, Functional Programming & Code Maintenance</li>
-                    <li>Version Control & Performance Optimization</li>
-                    <li>World Knowledge, Trivia & Lifelong Learning</li>
-                </ul>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2026 Ricardo Vieira. Built with passion for clean code.</p>
-        </footer>
+      <footer>
+        <p>&copy; 2026 Ricardo Vieira. Built with passion for clean code.</p>
+      </footer>
     </div>
 
     <script>
-        feather.replace();
+      feather.replace();
     </script>
-</body>
+  </body>
 </html>
